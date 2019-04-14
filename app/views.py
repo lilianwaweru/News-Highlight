@@ -33,10 +33,13 @@ def index():
     '''
     #Getting sports news
     sports_news = get_news('sports')
-    print(sports_news)
+    # print(sports_news)
+    business = get_news('business')
+    entertainment = get_news('entertainment')
+    technology = get_news('technology')
     tittle = 'Home - Welcome to the Best News Review Website Online'
     return render_template('index.html',title = title, sports = sports_news)
-    
+
 
 
 
