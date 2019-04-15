@@ -7,6 +7,6 @@ class News:
         self.id = id
         self.name = name
         self.description = description
-        self.url =  "http://www.bbc.co.uk/sport"+ url
+        self.url = url
         self.category = category
         self.country = country
