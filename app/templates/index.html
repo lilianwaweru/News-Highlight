@@ -1,37 +1,31 @@
-{% import 'macros.html' as macro %}
-<!DOCTYPE html>
-<html>
-    <head>
 
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the best News Highlight Review website </title>
-        {% endif %}
-    </head>
-    <body>
-        <!-- sports news section -->
-        <h3>Sports News</h3>
-        <ul>
-            {{ macro.displayNewsList(sports)}}
-        </ul>
-        <!-- business news section -->
-        <h4>Business News</h4>
-        <ul>
-            {{ macro.displayNewsList(business)}}
-        </ul>
-        <!-- entertainment news section -->
-        <h4>Entertainment News</h4>
-        <ul>
-            {{ macro.displayNewsList(entertainment)}}
-        </ul>
-        <!-- technology news section -->
-        <h4>Technology News</h4>
-        <ul>
-            {{ macro.displayNewsList(technology)}}
-        </ul>
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+
+<!-- Content block -->
+{% block content %}
+
+<!-- sports news section -->
+<h3>Sports News</h3>
+<ul>
+    {{ macro.displayNewsList(sports)}}
+</ul>
+<!-- business news section -->
+<h4>Business News</h4>
+<ul>
+    {{ macro.displayNewsList(business)}}
+</ul>
+<!-- entertainment news section -->
+<h4>Entertainment News</h4>
+<ul>
+    {{ macro.displayNewsList(entertainment)}}
+</ul>
+<!-- technology news section -->
+<h4>Technology News</h4>
+<ul>
+    {{ macro.displayNewsList(technology)}}
+</ul>
             
 
     
-    </body>
-</html>
+   
