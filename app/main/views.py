@@ -1,9 +1,10 @@
 from flask import render_template
-from .main import main
+from . import main
 from ..request import get_news,get_articles
+from ..models import News
 
 
-@app.route('/')
+@main.route('/')
 def index():
     '''
     view root page function that returns the index page and its data
