@@ -1,15 +1,18 @@
 from app import app
 import urllib.request,json
-from .models import news
+from .models import news,articles
+
 
 News = news.News
+Articles = articles.Articles
 
 #Getting api key
 api_key = app.config['NEWS_API_KEY']
 
+
 #Getting the new base url
 base_url = app.config["NEWS_API_BASE_URL"]
-
+base_url_articles = app.config["ARTICLES_API_BASE_URL"]
 
 def get_news(category):
     '''
@@ -28,6 +31,24 @@ def get_news(category):
             news_results = process_results(news_results_list)
 
     return news_results
+
+def get_articles(id):
+    '''
+    function that gets the json response to our url request
+    '''
+    get_articles_url = base_url_articles.format(id,api_key)
+    
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_articles_data = url.read()
+        get_articles_response = json.loads(get_articles_data)
+
+        articles_results = None
+
+        if get_articles_response['articles']:
+            articles_results = process_articles(get_articles_response['articles'])
+
+
+    return articles_results
 
 
 def process_results(news_list):
@@ -53,25 +74,26 @@ def process_results(news_list):
 
     return news_results  
 
-# def get_news(id):
-#     get_news_details_url = base_url.format(id,api_key)
 
-#     with urllib.request.urlopen(get_news_details_url) as url:
-#         news_details_data = url.read()
-#         news_details_response = json.loads(news_details_data)
+def process_articles(articles_list):
+    '''
+    Function that processes the articles results and transforms them to a list of objects
+    Args:
+        articles_list:A list of dictionaries that contain articles details
+    Returns:
+        articles_results: A list of articles objects
+    '''
+    articles_results = []
+    for articles_item in articles_list:
+        author = articles_item.get('author')
+        title = articles_item.get('title')
+        url = articles_item.get('url')
+        urlToImage = articles_item.get('urlToImage')
+        description =articles_item.get('description')
+        publishedAt = articles_item.get('publishedAt')
+        
+        articles_object = Articles(author,title,url,urlToImage,description,publishedAt)
+        articles_results.append(articles_object)
 
-#         news_object = None
-#         if movie_details_response:
-#             id = news_details_response.get('id')
-#             name = news_details_response.get('original_name')
-#             description = news_details_response.get('description')
-#             url = news_details_response.get('url')
-#             category = news_details_response.get('category')
-#             country = news_details_response.get('country')
-
-#             news_object = news(id,title,overview,poster,vote_average,vote_count)
-
-
-
-
+    return articles_results  
 
