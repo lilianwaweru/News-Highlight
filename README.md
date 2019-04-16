@@ -23,6 +23,8 @@ Give executable rights to the run.py file by running python3.6 run.py on the ter
 | when you click on the read more link       | it will take you to the article                                  |
 | when you land to the article               | it will show you the current news and the description and images |
 
+## LINk
+live link https://lilonewshighlight.herokuapp.com/
 
 
 
