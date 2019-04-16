@@ -17,12 +17,12 @@ Give executable rights to the run.py file by running python3.6 run.py on the ter
 
 
 ## BDD
-| BEHAVIOUR                                                          | OUTPUT                                                                                  |
-|--------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| when you interact with the application,it will ask for your inputs | when you input,you wi              |
-| when you chose create new account                                  | it will ask for your inputs                                                             |
-| if you input wrong details                                         | it will inform you that you have inputted the wrong details so you reenter your details |
-| if you choose to generate a password                               | it will generate a password for you                                                     |
+| BEHAVIOUR                                  | OUTPUT                                                           |
+|--------------------------------------------|------------------------------------------------------------------|
+| when the yours interacts with the homepage | he will see the sources of the application                       |
+| when you click on the read more link       | it will take you to the article                                  |
+| when you land to the article               | it will show you the current news and the description and images |
+
 
 
 
